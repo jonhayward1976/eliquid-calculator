@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>eliquid calculator</title>
+    <link rel="stylesheet" href="master.css">
+  </head>
+  <body>
+      <h1>E-Liquid Calculator</h1>
+
+    <div class="columns">
+      <div class="values">
+        <div class="batch-input">
+
+            <h3>Desired Result</h3>
+          <table>
+            <tr>
+              <td>  <label for="volume">Volume (ml): </label> </td>
+              <td> <input type="number" name="volume" value="0" id="des-vol"> </td>
+            </tr>
+            <tr>
+              <td> <label for="nicotine">Nicotine (mg/ml): </label> </td>
+              <td> <input type="number" name="nicotine" value="0.0" step="0.1" id="des-nic"> </td>
+            </tr>
+
+          </table>
+            <div>
+              <input type="range" id="pg-vg" name="pgvg"
+                   min="0" max="100" step="5" class="slider">
+            </div>
+
+            <div>
+                <input type="number" name="vg" value="50" id="des-vg" max="100" min="0">  <label for="vg">  VG  /</label>
+                <label for="pg">  PG   </label><input type="number" name="pg" value="50" id="des-pg" max="100" min="0">
+            </div>
+        </div>
+
+        <div class="batch-input">
+        <h3>Nicotine Concentrate</h3>
+        <table>
+          <tr>
+            <td><label for="nicstrength">Strength (mg/ml):</label></td>
+            <td><input type="number" name="nicstrength" value="0" id="nicstrength-input"></td>
+          </tr>
+          <tr>
+            <td><label for="nicvg">VG (%): </label><input type="number" name="nicvg" value="0" id="nic-vg" max="100" min="0"></td>
+            <td><label for="nicpg">PG (%): </label><input type="number" name="nicpg" value="0" id="nic-pg" max="100" min="0"></td>
+          </tr>
+        </table>
+        </div>
+
+        <div class="batch-input">
+          <h3>Flavourings</h3>
+            <label for="flavournumber">Number of flavourings: </label><input type="number" name="flavournumber" value="0" id="flavour-num">
+            <table id="flav-inputs">
+            </table>
+        </div>
+
+        <div class="calcButton">
+          <button type="button" name="calculate" id="calc-btn">Calculate</button>
+        </div>
+      </div>
+      <div class="recipe">
+        <div class="batch-input">
+        <h3>Recipe</h3>
+        <table>
+          <tr>
+            <td>VG: </td><td id="res-vg"></td>
+          </tr>
+          <tr>
+            <td>PG: </td><td id="res-pg"></td>
+          </tr>
+          <tr>
+            <td>Nicotine: </td><td id="res-nic"></td>
+          </tr>
+
+        </table>
+        <table id="resflav-el">
+
+        </table>
+        </div>
+      </div>
+    </div>
+
+<script src="index.js"></script>
+  </body>
+</html>
