@@ -94,7 +94,7 @@ flavNum.addEventListener("change", function() {
 function buildFlavList() {
   flavours = []
   let flavinstr = ""
-  let flavoutstr = ""
+  // let flavoutstr = ""
   for (let i = 0; i < flavNum.value; i++) {
     flavours.push(0)
   }
@@ -103,12 +103,12 @@ function buildFlavList() {
     <tr><td><label for="flavour${i}">Flavouring ${i + 1} (%): </label></td><td><input type="number" name="flavour${i}" value="0" id="flavour-input${i}"></td>
     <td><label for="flavourisVG${i}">VG:</label><input type="checkbox" name="flavourisVG${i}" id="flavourisVG${i}"></td></tr>
     `
-    flavoutstr +=`
-    <tr><td>Flavour ${i + 1}: </td><td id="res-flav${i}"></td>
-    `
+    // flavoutstr +=`
+    // <tr><td>Flavour ${i + 1}: </td><td id="res-flav${i}"></td>
+    // `
     }
     flavInputs.innerHTML = flavinstr
-    resFlavEl.innerHTML = flavoutstr
+    // resFlavEl.innerHTML = flavoutstr
 }
 
 //calculate volumes for recipe output
@@ -147,13 +147,15 @@ function calculate() {
 
 // render results
 function render() {
-    resPg.textContent = `${Math.round(totalPg * 10) / 10} ml`
-    resVg.textContent = `${Math.round(totalVg * 10) / 10} ml`
-    resNic.textContent = `${Math.round(totalNic * 10) / 10} ml`
+    resPg.innerHTML = `<td>PG: </td><td>${Math.round(totalPg * 10) / 10} ml</td>`
+    resVg.innerHTML = `<td>VG: </td><td>${Math.round(totalVg * 10) / 10} ml</td>`
+    resNic.innerHTML = `<td>Nicotine: </td><td>${Math.round(totalNic * 10) / 10} ml</td>`
 
+// needs fixing - render table rows (append?)
+    let flavhtmlstr = ""
     for (let i = 0; i < flavoursVol.length; i++) {
-      let el = "res-flav" + i
-      let str = `${Math.round(flavoursVol[i] * 10) / 10} ml`
-      document.getElementById(el).textContent = str
-    }
+      // let el = "res-flav" + i
+      flavhtmlstr += `<tr><td>Flavour${i+1}: </td><td>${Math.round(flavoursVol[i] * 10) / 10} ml</td></tr>`
+      }
+      resFlavEl.innerHTML = flavhtmlstr
 }
