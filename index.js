@@ -155,7 +155,7 @@ function render() {
     let flavhtmlstr = ""
     for (let i = 0; i < flavoursVol.length; i++) {
       // let el = "res-flav" + i
-      flavhtmlstr += `<tr><td>Flavour${i+1}: </td><td>${Math.round(flavoursVol[i] * 10) / 10} ml</td></tr>`
+      flavhtmlstr += `<tr><td>Flavour ${i+1}: </td><td>${Math.round(flavoursVol[i] * 10) / 10} ml</td></tr>`
       }
       resFlavEl.innerHTML = flavhtmlstr
 }
